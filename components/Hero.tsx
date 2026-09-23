@@ -87,7 +87,8 @@ export default function Hero() {
     for (let i = 1; i <= totalFrames; i++) {
       const img = new Image();
       const frameNum = String(i).padStart(3, "0");
-      img.src = `/hero-frames/ezgif-frame-${frameNum}.png`;
+      const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+      img.src = `${basePath}/hero-frames/ezgif-frame-${frameNum}.png`;
 
       img.onload = () => {
         if (!isMounted) return;

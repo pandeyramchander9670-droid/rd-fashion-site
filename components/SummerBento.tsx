@@ -19,6 +19,7 @@ const PILL_TAGS = [
 ];
 
 export default function SummerBento() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
   const [selectedSwatch, setSelectedSwatch] = useState("tan");
 
   return (
@@ -43,7 +44,7 @@ export default function SummerBento() {
             {/* Top Card: Model on Stairs with 5 Swatches */}
             <div className="relative aspect-[16/11] flex-1 rounded-[30px] md:rounded-[38px] overflow-hidden border-2 border-black/15 bg-white group shadow-xl">
               <img
-                src="/images/summer-bento-stairs.jpg"
+                src={`${basePath}/images/summer-bento-stairs.jpg`}
                 alt="RD Fashion Summer Capsule"
                 className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               />
@@ -117,7 +118,7 @@ export default function SummerBento() {
               {/* Left Item: Playful Model with Sunglasses (flex-1) */}
               <div className="flex-1 rounded-[30px] md:rounded-[38px] overflow-hidden border-2 border-black/15 bg-white group relative shadow-xl">
                 <img
-                  src="/images/summer-bento-peace.jpg"
+                  src={`${basePath}/images/summer-bento-peace.jpg`}
                   alt="RD Fashion Happy Summer Style"
                   className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                 />

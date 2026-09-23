@@ -141,7 +141,7 @@ export default function EditorialPoster() {
         {/* Center Cutout Character (Transparent PNG) */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[68%] sm:h-[75%] md:h-[82%] z-20 pointer-events-none flex justify-center items-end">
           <img
-            src="/images/editorial-model-cutout.png"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/images/editorial-model-cutout.png`}
             alt="RD Fashion Editorial Model"
             className="h-full w-auto object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.3)]"
           />
