@@ -38,27 +38,25 @@ export default function Hero() {
       const imgWidth = img.naturalWidth;
       const imgHeight = img.naturalHeight;
 
-      // Fit height so character's full body and head are NEVER cut off on wide screens
+      // Full bleed coverage across all devices so no letterboxing/grey bezels appear
       const vRatio = canvasHeight / imgHeight;
       const hRatio = canvasWidth / imgWidth;
       const isMobile = window.innerWidth < 768;
 
-      // On desktop/ultrawide, fit to height so head and feet remain fully visible
-      // On narrow mobile, scale up slightly to keep focal point balanced
-      const ratio = isMobile ? Math.max(hRatio, vRatio) : vRatio;
+      // Always cover full width and height edge-to-edge
+      const ratio = Math.max(hRatio, vRatio);
 
       const renderWidth = imgWidth * ratio;
       const renderHeight = imgHeight * ratio;
 
-      // Position floor grounded at bottom
-      const shiftY = canvasHeight - renderHeight;
-      // On wide screens, position cubes/character to right-center (0.75) leaving left open for RD FASHION text
-      const focalX = isMobile ? 0.65 : canvasWidth > renderWidth ? 0.75 : 0.5;
-      const shiftX = (canvasWidth - renderWidth) * focalX;
+      // Vertical alignment: on wide screens where height overflows, preserve head and boots
+      const excessY = renderHeight - canvasHeight;
+      const shiftY = excessY > 0 ? -Math.min(excessY * 0.35, 50 * ratio) : 0;
 
-      // Draw background fill to blend seamlessly at sides
-      ctx.fillStyle = "#828b8d";
-      ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+      // Horizontal alignment: on narrow/mobile screens where width overflows, focus on character
+      const excessX = renderWidth - canvasWidth;
+      const focalX = isMobile ? 0.65 : 0.5;
+      const shiftX = excessX > 0 ? -excessX * focalX : 0;
 
       ctx.drawImage(img, 0, 0, imgWidth, imgHeight, shiftX, shiftY, renderWidth, renderHeight);
       currentFrameIndexRef.current = index;
@@ -200,11 +198,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-screen overflow-hidden bg-[#7c8180] select-none"
-      style={{
-        background:
-          "radial-gradient(circle at 65% 50%, #b8babd 0%, #8b9193 45%, #6a7071 100%)",
-      }}
+      className="relative w-full h-screen overflow-hidden bg-[#e5e5e7] select-none"
     >
       {/* HTML5 Canvas rendering the preloaded 180 hero frames */}
       <canvas
