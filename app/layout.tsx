@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   title: "RD FASHION | Haute Editorial Fashion & Runway Capsule",
   description:
     "Experience RD FASHION — where sculptural silhouettes meet architectural modernism. Discover the Summer Capsule collection.",
+  other: {
+    "Cache-Control": "no-cache, no-store, must-revalidate",
+    Pragma: "no-cache",
+    Expires: "0",
+  },
 };
 
 export default function RootLayout({
