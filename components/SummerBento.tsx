@@ -4,23 +4,24 @@ import React, { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 const SWATCHES = [
-  { id: "marble", bg: "radial-gradient(circle, #fff, #bbb)", label: "Marble Silk" },
-  { id: "black", bg: "#171717", label: "Midnight Onyx" },
-  { id: "tan", bg: "#d4a359", label: "Sunlit Sand" },
-  { id: "dusty-rose", bg: "#c96f73", label: "Desert Coral" },
-  { id: "sage", bg: "#7e9f95", label: "Nordic Sage" },
+  { id: "caramel", bg: "#9e5e33", label: "Caramel / Black Raglan", image: "/images/summer-bento-stairs.jpg" },
+  { id: "black", bg: "#171717", label: "Onyx / Off-White Raglan", image: "/images/product-raglan-black-white.jpg" },
+  { id: "dusty-rose", bg: "#c96f73", label: "Heritage Pink Henley", image: "/images/product-henley-pink.jpg" },
+  { id: "chalk-rose", bg: "linear-gradient(135deg, #f5f5f5 50%, #c96f73 50%)", label: "Chalk / Rose Raglan", image: "/images/product-raglan-white-pink.jpg" },
+  { id: "rose-chalk", bg: "linear-gradient(135deg, #c96f73 50%, #f5f5f5 50%)", label: "Rose / Chalk Raglan", image: "/images/product-raglan-pink-white.jpg" },
 ];
 
 const PILL_TAGS = [
-  "100% COTTON MADE",
-  "NEW VERSATILE STYLES",
-  "ECO-FRIENDLY MATERIALS",
-  "UPF PROTECTION",
+  "100% COTTON WAFFLE KNIT",
+  "RAGLAN & HENLEY CUTS",
+  "BREATHABLE THERMAL WEAVE",
+  "MENSWEAR CAPSULE",
 ];
 
 export default function SummerBento() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-  const [selectedSwatch, setSelectedSwatch] = useState("tan");
+  const [selectedSwatch, setSelectedSwatch] = useState("caramel");
+  const activeSwatch = SWATCHES.find((s) => s.id === selectedSwatch) || SWATCHES[0];
 
   return (
     <section
@@ -44,13 +45,14 @@ export default function SummerBento() {
             {/* Top Card: Model on Stairs with 5 Swatches */}
             <div className="relative aspect-[16/11] flex-1 rounded-[30px] md:rounded-[38px] overflow-hidden border-2 border-black/15 bg-white group shadow-xl">
               <img
-                src={`${basePath}/images/summer-bento-stairs.jpg`}
-                alt="RD Fashion Summer Capsule"
-                className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                key={activeSwatch.id}
+                src={`${basePath}${activeSwatch.image}`}
+                alt={`RD Fashion Menswear - ${activeSwatch.label}`}
+                className="w-full h-full object-cover object-center transition-all duration-500 ease-out group-hover:scale-105"
               />
 
               {/* 5 Stacked Circular Color Swatches on the Right Side */}
-              <div className="absolute top-5 right-5 sm:top-6 sm:right-6 flex flex-col gap-2.5 z-20 bg-white/75 backdrop-blur-md p-2 rounded-full border border-black/15 shadow-md">
+              <div className="absolute top-5 right-5 sm:top-6 sm:right-6 flex flex-col gap-2.5 z-20 bg-white/85 backdrop-blur-md p-2 rounded-full border border-black/15 shadow-md">
                 {SWATCHES.map((swatch) => (
                   <button
                     key={swatch.id}
@@ -58,7 +60,7 @@ export default function SummerBento() {
                     title={swatch.label}
                     className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 transition-all duration-200 ${
                       selectedSwatch === swatch.id
-                        ? "border-[#ff461e] scale-115 shadow-md shadow-[#ff461e]/40"
+                        ? "border-[#ff461e] scale-115 shadow-md shadow-[#ff461e]/40 ring-2 ring-black/20"
                         : "border-black/30 hover:scale-110"
                     }`}
                     style={{ background: swatch.bg }}
