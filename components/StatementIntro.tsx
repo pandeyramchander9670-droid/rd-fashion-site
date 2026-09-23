@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function StatementIntro() {
   return (
@@ -20,7 +20,7 @@ export default function StatementIntro() {
         >
           {/* Tag */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#e63946] text-xs font-semibold tracking-[0.25em] uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#e63946] animate-pulse" />
             <span>Autumn / Summer 2025 Statement</span>
           </div>
 

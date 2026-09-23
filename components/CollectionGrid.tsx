@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Plus, Sparkles } from "lucide-react";
+import { Heart, Plus } from "lucide-react";
 
 interface Product {
   id: string;
@@ -132,7 +132,7 @@ export default function CollectionGrid({
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold tracking-[0.25em] uppercase text-[#ff461e] mb-2">
-              <Sparkles className="w-3.5 h-3.5" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ff461e]" />
               <span>HAUTE CURATION</span>
             </div>
             <h2 className="font-[family-name:var(--font-anton)] text-5xl sm:text-6xl md:text-7xl uppercase tracking-tight text-black">
