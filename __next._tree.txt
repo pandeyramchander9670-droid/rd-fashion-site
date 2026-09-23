@@ -1,4 +1,4 @@
-:HL["/rd-fashion-site/_next/static/chunks/0q65kt7e0efiz.css","style"]
+:HL["/rd-fashion-site/_next/static/chunks/0mow9hzjqsd3z.css","style"]
 :HL["/rd-fashion-site/_next/static/media/9e9f04e3c37952ab-s.p.0pan85mumqyf3.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/rd-fashion-site/_next/static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"CpH0lXD0Vjo3AS8mPA1fT"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"noZCEjuOv7t-6jQ0Y0UDQ"}
